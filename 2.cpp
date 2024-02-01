@@ -1,42 +1,42 @@
-#include<iostream>
- using namespace std;
+#include <iostream>
+using namespace std;
 
-class A{
-
+class Engine {
 public:
-
-virtual void show(){
-
-cout<<"Method from class A...."<<endl;
-
-}
-
+    Engine() {
+        cout << "Engine created." << endl;
+    }
 };
 
-class B : public A
-
-{
-
+class Vehicle {
 public:
-
-void show(){
-
-cout<<"Method from class B...."<<endl;
-
-}
-
+    Vehicle() {
+        cout << "Vehicle created." << endl;
+    }
 };
 
-int main(){
+class Car : virtual public Vehicle {
+public:
+    Car() {
+        cout << "Car created." << endl;
+    }
+};
 
-B b1;
+class Bike : virtual public Vehicle {
+public:
+    Bike() {
+        cout << "Bike created." << endl;
+    }
+};
 
-A a1;
+class Motorcycle : public Car, public Bike {
+public:
+    Motorcycle() {
+        cout << "Motorcycle created." << endl;
+    }
+};
 
-A *p1;
-
-p1 = &b1;
-
-p1->show();
-
+int main() {
+    Motorcycle m;
+    return 0;
 }
